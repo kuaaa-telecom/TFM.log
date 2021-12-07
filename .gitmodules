@@ -1,0 +1,3 @@
+[submodule "Elo-MMR"]
+	path = Elo-MMR
+	url = https://github.com/EbTech/Elo-MMR.git
