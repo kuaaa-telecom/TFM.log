@@ -1,0 +1,29 @@
+# TFM.log
+Automatic ELO-MMR updater for Terraforming Mars Game play log
+
+This repo is using ELO-MMR system suggested by
+> Ebtekar, A., & Liu, P. (2021). An Elo-like System for Massive Multiplayer Competitions. arXiv preprint arXiv:2101.00400.
+
+
+# Log format
+* Split season by file
+* Seperate each round by `\n\n` (double space)
+* Record results of each player by 
+`Name Corperation VP`
+with `\n`
+
+# Standings - S2
+```csv
+rank	rating	games	name
+1	1758	3	최희원
+2	1626	5	황덕근
+3	1388	2	이규호
+4	1346	1	김현채
+5	1280	1	강현모
+6	1268	5	서보성
+7	1256	2	강민혁
+8	1212	1	김보경
+9	1199	1	한유진
+10	1021	1	염규진
+11	971	1	한민구
+```
