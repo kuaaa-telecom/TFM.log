@@ -1,0 +1,43 @@
+name: Instant README update
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch: 
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Dependency
+        run: |
+          cd $GITHUB_WORKSPACE
+          git submodule update --init --recursive
+          ls -ahl
+
+      - name: Converting log format
+        run: |
+          python utils/ELOMMR.py logs/*.log
+          mkdir Elo-MMR/cache
+          mv logs/S* Elo-MMR/cache/TFM
+
+      - name: Moving pwd
+        run: |
+          cd Elo-MMR/multi-skill
+
+      - name: Run Elo-MMR calculator
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --release --bin rate mmr TFM
+      
+      - name: Checkout result
+        run: |
+          cd -
+          cat Elo-MMR/experiments/TFM/ratings_output.csv
