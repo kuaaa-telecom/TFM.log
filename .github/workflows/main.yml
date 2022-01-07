@@ -26,7 +26,7 @@ jobs:
           python utils/ELOMMR.py logs/*.log
           mkdir Elo-MMR/cache
           mkdir Elo-MMR/cache/TFM
-          mv logs/S*/* logs/TFM/
+          mv logs/S*/* Elo-MMR/cache/TFM/
 
       - name: Moving pwd
         run: |
