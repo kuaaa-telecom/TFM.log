@@ -21,16 +21,16 @@ jobs:
           git submodule update --init --recursive
           ls -ahl $GITHUB_WORKSPACE
 
+      - name: Boilerplate for action-rs/cargo@v1
+        run: |
+          mkdir ../cache/
+          mkdir ../cache/TFM/
+          mkdir ../data/
+
       - name: Converting log format
         run: |
           python utils/ELOMMR.py logs/*.log
-          mkdir Elo-MMR/cache
-          mkdir Elo-MMR/cache/TFM
-          mv logs/S*/* Elo-MMR/cache/TFM/
-
-      - name: Moving cwd
-        run: |
-          cd Elo-MMR/multi-skill/
+          mv logs/S*/* ../cache/TFM/
 
       - name: Run Elo-MMR calculator
         uses: actions-rs/cargo@v1
@@ -40,5 +40,4 @@ jobs:
       
       - name: Checkout result
         run: |
-          cd $GITHUB_WORKSPACE
-          cat Elo-MMR/experiments/TFM/ratings_output.csv
+          cat ../data/TFM/all_players.csv
