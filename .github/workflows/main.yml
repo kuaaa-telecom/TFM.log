@@ -2,9 +2,9 @@ name: Instant README update
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
   workflow_dispatch: 
 
@@ -46,6 +46,6 @@ jobs:
         run: |
           cat README.template > README.md
           echo "# Standings" >> README.md
-          echo "\`\`\`" >> README.md
+          echo "\`\`\`csv" >> README.md
           cat ../data/TFM/all_players.csv >> README.md
           echo "\`\`\`" >> README.md
