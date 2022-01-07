@@ -13,7 +13,7 @@ This repo is using ELO-MMR system suggested by
 with `\n`
 
 # Standings
-``` csv
+```csv
 rank,display_rating,max_rating,cur_sigma,num_contests,last_contest_index,last_contest_time,last_perf,last_change,handle
 1,1758,1758,113,3,4,4,1869,63,최희원
 2,1626,1626,95,5,5,5,1722,35,황덕근
