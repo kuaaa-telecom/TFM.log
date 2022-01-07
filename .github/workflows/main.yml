@@ -41,3 +41,11 @@ jobs:
       - name: Checkout result
         run: |
           cat ../data/TFM/all_players.csv
+
+      - name: Reflect to READMD.md
+        run: |
+          cat README.template > README.md
+          echo "# Standings" >> README.md
+          echo "\`\`\`" >> README.md
+          cat ../data/TFM/all_players.csv >> README.md
+          echo "\`\`\`" >> README.md
