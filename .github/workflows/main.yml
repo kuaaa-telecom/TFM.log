@@ -28,15 +28,11 @@ jobs:
           mkdir Elo-MMR/cache/TFM
           mv logs/S*/* Elo-MMR/cache/TFM/
 
-      - name: Moving pwd
-        run: |
-          cd Elo-MMR/multi-skill
-
       - name: Run Elo-MMR calculator
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --manifest-path $GITHUB_WORKSPACE/Elo-MMR/multi-skill/Cargo.toml --release --bin rate mmr TFM 
+          args: --manifest-path ./Elo-MMR/multi-skill/Cargo.toml --release --bin rate mmr TFM 
       
       - name: Checkout result
         run: |
