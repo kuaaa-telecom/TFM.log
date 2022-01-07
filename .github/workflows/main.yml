@@ -36,9 +36,9 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --release --bin rate mmr TFM --manifest-path $GITHUB_WORKSPACE/Elo-MMR/multi-skill/Cargo.toml
+          args: --manifest-path $GITHUB_WORKSPACE/Elo-MMR/multi-skill/Cargo.toml --release --bin rate mmr TFM 
       
       - name: Checkout result
         run: |
-          cd -
+          cd $GITHUB_WORKSPACE
           cat Elo-MMR/experiments/TFM/ratings_output.csv
