@@ -19,7 +19,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           git submodule update --init --recursive
-          ls -ahl
+          ls -ahl $GITHUB_WORKSPACE
 
       - name: Converting log format
         run: |
@@ -27,6 +27,10 @@ jobs:
           mkdir Elo-MMR/cache
           mkdir Elo-MMR/cache/TFM
           mv logs/S*/* Elo-MMR/cache/TFM/
+
+      - name: Moving cwd
+        run: |
+          cd Elo-MMR/multi-skill/
 
       - name: Run Elo-MMR calculator
         uses: actions-rs/cargo@v1
