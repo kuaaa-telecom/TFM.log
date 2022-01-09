@@ -3,7 +3,7 @@ import sys, os
 
 
 def convert(index, record):
-    row = record.split("\n")
+    row = record.strip().split("\n")
     return json.dumps({
         "name": f"{base}.R{index}",
         # Ignore this timestamp paramteter
