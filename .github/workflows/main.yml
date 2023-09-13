@@ -32,6 +32,10 @@ jobs:
           python utils/ELOMMR.py logs/*.log
           mv logs/S*/* ../cache/TFM/
 
+      - name: Pre setup for Elo-MMR calculator
+        run: |
+          apt install pkg-config
+
       - name: Run Elo-MMR calculator
         uses: actions-rs/cargo@v1
         with:
