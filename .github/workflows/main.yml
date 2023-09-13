@@ -20,6 +20,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           git submodule update --init --recursive
           ls -ahl $GITHUB_WORKSPACE
+          sudo apt install pkg-config
 
       - name: Boilerplate for action-rs/cargo@v1
         run: |
@@ -31,10 +32,6 @@ jobs:
         run: |
           python utils/ELOMMR.py logs/*.log
           mv logs/S*/* ../cache/TFM/
-
-      - name: Pre setup for Elo-MMR calculator
-        run: |
-          apt install pkg-config
 
       - name: Run Elo-MMR calculator
         uses: actions-rs/cargo@v1
