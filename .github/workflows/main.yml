@@ -20,7 +20,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           git submodule update --init --recursive
           ls -ahl $GITHUB_WORKSPACE
-          sudo apt install pkg-config
+          sudo apt install libssl-dev
 
       - name: Boilerplate for action-rs/cargo@v1
         run: |
