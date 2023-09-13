@@ -33,6 +33,10 @@ jobs:
           python utils/ELOMMR.py logs/*.log
           mv logs/S*/* ../cache/TFM/
 
+      - name: Inject patched dependency for Elo-MMR calculator
+        run: |
+          mv patch/Cargo.toml Elo-MMR/multi-skill/Cargo.toml
+
       - name: Run Elo-MMR calculator
         uses: actions-rs/cargo@v1
         with:
@@ -46,7 +50,7 @@ jobs:
       - name: Reflect to READMD.md
         run: |
           cat README.template > README.md
-          echo "# Standings - S2" >> README.md
+          echo "# Standings - S3" >> README.md
           echo "\`\`\`csv" >> README.md
           sed -i 's/display_rating/rating/g; s/num_contests/games/g; s/handle/name/g;' ../data/TFM/all_players.csv
           awk -F, -v OFS='\t' '{ print $1, $2, $5, $10 }' ../data/TFM/all_players.csv >> README.md
