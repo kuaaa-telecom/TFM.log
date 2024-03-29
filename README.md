@@ -12,7 +12,7 @@ This repo is using ELO-MMR system suggested by
 `Name Corperation VP`
 with `\n`
 
-# Standings - S3
+# Standings - S4
 ```csv
 rank	rating	games	name
 1	1812	5	강현모
