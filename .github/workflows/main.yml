@@ -50,7 +50,7 @@ jobs:
       - name: Reflect to READMD.md
         run: |
           cat README.template > README.md
-          echo "# Standings - S3" >> README.md
+          echo "# Standings - S4" >> README.md
           echo "\`\`\`csv" >> README.md
           sed -i 's/display_rating/rating/g; s/num_contests/games/g; s/handle/name/g;' ../data/TFM/all_players.csv
           awk -F, -v OFS='\t' '{ print $1, $2, $5, $10 }' ../data/TFM/all_players.csv >> README.md
