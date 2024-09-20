@@ -50,7 +50,7 @@ jobs:
       - name: Reflect to READMD.md
         run: |
           cat README.template > README.md
-          echo "# Standings - S4" >> README.md
+          echo "# Standings - S5" >> README.md
           echo "\`\`\`csv" >> README.md
           sed -i 's/display_rating/rating/g; s/num_contests/games/g; s/handle/name/g;' ../data/TFM/all_players.csv
           awk -F, -v OFS='\t' '{ print $1, $2, $5, $10 }' ../data/TFM/all_players.csv >> README.md
@@ -61,7 +61,7 @@ jobs:
         with:
           add: './README.md'
           author_name: PngWnA
-          author_email: gnu@korea.ac.kr
+          author_email: pngwna@pngwna.net
           branch: main
           cwd: '.'
           default_author: github_actor
